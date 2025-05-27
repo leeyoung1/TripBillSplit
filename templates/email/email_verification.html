@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>邮箱验证</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+        }
+        .code {
+            font-family: monospace;
+            background-color: #eee;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>验证您的邮箱地址</h2>
+        </div>
+        
+        <p>亲爱的 {{ username }}，</p>
+        
+        <p>感谢您注册 {{ app_name }}！请点击下面的按钮验证您的邮箱地址：</p>
+        
+        <div style="text-align: center;">
+            <a href="{{ verification_url }}" class="btn">验证邮箱</a>
+        </div>
+        
+        <p>或者，您可以复制以下链接到浏览器地址栏：</p>
+        <p><a href="{{ verification_url }}">{{ verification_url }}</a></p>
+        
+        <p>如果您在点击按钮时遇到问题，您也可以在应用中输入以下验证码：</p>
+        <p class="code">{{ token_part }}</p>
+        
+        <p>如果您没有注册 {{ app_name }}，请忽略此邮件。</p>
+        
+        <p>祝好，<br>{{ app_name }} 团队</p>
+    </div>
+    
+    <div class="footer">
+        <p>此邮件是自动发送的，请勿回复。</p>
+        <p>&copy; {{ app_name }} - 旅行分账从未如此简单</p>
+    </div>
+</body>
+</html> 
